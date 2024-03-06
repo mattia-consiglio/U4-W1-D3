@@ -3,9 +3,21 @@ package exercise1;
 public class Rectangle {
     private int width;
     private int height;
+
     public Rectangle(int width, int height) {
         this.width = width;
         this.height = height;
+    }
+
+    public static void printTwoRectangles(Rectangle r1, Rectangle r2) {
+        if (r1 == null || r2 == null) {
+            System.err.println("One or more of the rectangles are null");
+        } else {
+            r1.printRectangle();
+            System.out.println();
+            r2.printRectangle();
+        }
+
     }
 
     public int getArea() {
@@ -17,19 +29,10 @@ public class Rectangle {
     }
 
     public void printRectangle() {
-        System.out.println("Width: " + this.width);        System.out.println("Height: " + this.height);
+        System.out.println("Width: " + this.width);
+        System.out.println("Height: " + this.height);
         System.out.println("Area: " + this.getArea());
         System.out.println("Perimeter: " + this.getPerimeter());
-    }
-
-    public static void printTwoRectangles(Rectangle r1, Rectangle r2) {
-        if (r1 == null || r2 == null ) {
-            System.err.println("One or more of the rectangles are null");
-        } else {
-            new Rectangle(r1.width, r1.height).printRectangle();
-            new Rectangle(r2.width, r2.height).printRectangle();
-        }
-
     }
 
     @Override
@@ -48,5 +51,11 @@ public class Rectangle {
         return width == rectangle.width && height == rectangle.height;
     }
 
+    public int getWidth() {
+        return width;
+    }
 
+    public int getHeight() {
+        return height;
+    }
 }
