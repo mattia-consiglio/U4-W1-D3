@@ -29,23 +29,12 @@ public class Sim {
         return Arrays.copyOfRange(this.lastCalls, 0, Math.min(5, this.lastCalls.length));
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public double getCredit() {
-        return credit;
-    }
 
     public void setCredit(int credit) {
         if (credit < 0) {
             throw new IllegalArgumentException("Credit cannot be negative");
         }
         this.credit = credit;
-    }
-
-    public Call[] getLastCalls() {
-        return lastCalls;
     }
 
     @Override

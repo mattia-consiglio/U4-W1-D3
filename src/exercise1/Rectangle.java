@@ -5,6 +5,18 @@ public class Rectangle {
     private int height;
 
     public Rectangle(int width, int height) {
+        if (width <= 0 || height <= 0) {
+            if (width <= 0) {
+
+                System.err.println("Width cannot be negative");
+            }
+            if (height <= 0) {
+
+                System.err.println("Height cannot be negative");
+            }
+            return;
+        }
+
         this.width = width;
         this.height = height;
     }
@@ -13,11 +25,18 @@ public class Rectangle {
         if (r1 == null || r2 == null) {
             System.err.println("One or more of the rectangles are null");
         } else {
-            r1.printRectangle();
+            printRectangle(r1);
             System.out.println();
-            r2.printRectangle();
+            printRectangle(r2);
+            System.out.println("Total area:" + (r1.getArea() + r2.getArea()));
+            System.out.println("Total perimeter:" + (r1.getPerimeter() + r2.getPerimeter()));
         }
 
+    }
+
+    public static void printRectangle(Rectangle rectangle) {
+        System.out.println("Area: " + rectangle.getArea());
+        System.out.println("Perimeter: " + rectangle.getPerimeter());
     }
 
     public int getArea() {
@@ -28,12 +47,6 @@ public class Rectangle {
         return 2 * (this.width + this.height);
     }
 
-    public void printRectangle() {
-        System.out.println("Width: " + this.width);
-        System.out.println("Height: " + this.height);
-        System.out.println("Area: " + this.getArea());
-        System.out.println("Perimeter: " + this.getPerimeter());
-    }
 
     @Override
     public String toString() {
@@ -51,11 +64,5 @@ public class Rectangle {
         return width == rectangle.width && height == rectangle.height;
     }
 
-    public int getWidth() {
-        return width;
-    }
 
-    public int getHeight() {
-        return height;
-    }
 }

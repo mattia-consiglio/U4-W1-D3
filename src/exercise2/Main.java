@@ -10,6 +10,9 @@ public class Main {
         sim.addCall(new Call("1965814982", 5));
         sim.addCall(new Call("16519", 15));
         sim.addCall(new Call("96419651", 5));
+        sim.addCall(new Call("96419651", 5));
+        sim.addCall(new Call("96419651", 5));
+        sim.addCall(new Call("96419651", 50));
         System.out.println(sim);
     }
 }
